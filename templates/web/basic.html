@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="{% static 'lib/html5.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/respond.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/PIE_IE678.js' %}"></script>
+<![endif]-->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'h-ui/css/H-ui.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/Hui-iconfont/1.0.7/iconfont.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/icheck/icheck.css' %}"/>
+    <!--[if IE 6]>
+<script type="text/javascript" src="{% static 'lib/DD_belatedPNG_0.0.8a-min.js' %}" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+
+    <title>{% block title %} anoldcd,让音乐进入生活{% endblock %}</title>
+    <meta name="keywords" content="关键词,5个左右,单个8汉字以内">
+    <meta name="description" content="网站描述，字数尽量空制在80个汉字，160个字符以内！">
+</head>
+
+<body>
+<header class="navbar-wrapper">
+    <div class="navbar navbar-white navbar-fixed-top">
+        <div class="container cl">
+            <a class="logo navbar-logo-m" href="/aboutHui.shtml">
+                <img src="{% static 'img/logo.png' %}"/>
+            </a>
+            <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+            <nav class="nav navbar-nav nav-collapse" role="navigation" id="Hui-navbar">
+                <ul class="cl">
+                    {% block nav %}
+                        <div>这里是nav</div>{% endblock %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+{% block content %}
+    <div>主要内容</div>
+{% endblock %}
+{% include 'web/foot.html' %}
+<script type="text/javascript" src="{% static 'lib/jquery/1.9.1/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/layer/2.1/layer.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/laypage/1.2/laypage.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/My97DatePicker/WdatePicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/icheck/jquery.icheck.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/bootstrap-Switch/bootstrapSwitch.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/Validform/5.3.2/Validform.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/Validform/5.3.2/passwordStrength-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'h-ui/js/H-ui.js' %}"></script>
+<script>
+    var navigation = responsiveNav("Hui-navbar", {
+        customToggle: ".nav-toggle"
+    });
+    $(function () {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+        $("#demoform").Validform({
+            tiptype: 2
+        });
+    });
+</script>
+<!--tab选项卡调用问题-->
+<script type="text/javascript">
+    $(function () {
+        $.Huitab("#tab .tabBar span", "#tab .tabCon", "current", "click", "0");
+    });
+    // #tab_demo 父级id
+    // #tab_demo .tabBar span 控制条
+    // #tab_demo .tabCon 内容区
+    // click 事件 点击切换，可以换成mousemove 移动鼠标切换
+    // 0	默认第2个tab为当前状态（从0开始）
+</script>
+</body>
+
+</html>
