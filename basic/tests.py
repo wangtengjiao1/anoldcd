@@ -6,3 +6,10 @@
 from django.test import TestCase
 
 # Create your tests here.
+# 循环生成u'A'-u'Z'的元组
+Alphabetical = ()
+for ch in xrange(0x41, 0x5B):
+    Alphabetical =Alphabetical+((unichr(ch),unichr(ch)),)
+print Alphabetical
+
+

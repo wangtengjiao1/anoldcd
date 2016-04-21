@@ -9,6 +9,7 @@ from django.db import models
 import uuid
 
 
+
 # 此模块主要内容为基础信息.
 
 
@@ -22,6 +23,21 @@ class Class(models.Model):
     class Meta:
         verbose_name = u'分类'
         verbose_name_plural = u'分类管理'
+
+    def __unicode__(self):
+        return self.Name
+
+
+# 地区类模型
+class Region(models.Model):
+    ID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    Name = models.CharField(u'地区名称', max_length=100)
+    CreatedTime = models.DateTimeField(u'创建时间', auto_now_add=True)
+    ChangeTime = models.DateTimeField(u'修改时间', auto_now=True)
+
+    class Meta:
+        verbose_name = u'地区'
+        verbose_name_plural = u'地区管理'
 
     def __unicode__(self):
         return self.Name
